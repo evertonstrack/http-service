@@ -19,7 +19,11 @@ class HttpService {
     static get(url, params = '', type = 'json'){
         
         if( params ) {
-            url = `${url}?${$.param(params)}`;
+            let esc = encodeURIComponent;
+            let query = Object.keys(params)
+                .map(k => esc(k) + '=' + esc(params[k]))
+                .join('&');
+            url = `${url}?${query}`;
         }
 
         return fetch(url, {
