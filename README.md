@@ -21,6 +21,11 @@ let params = {
 
 http.get('/api/users', params)
 	.then(res => console.log(res))
+	.catch(err => console.log(err));
+	
+// with response text/html
+http.get('/api/users', params, 'text')
+	.then(res => console.log(res))
 	.catch(err => console.log(err));  
  
 ```
@@ -36,6 +41,11 @@ let params = {
 };
 
 http.post('/api/users', params)
+	.then(res => console.log(res))
+	.catch(err => console.log(err));
+
+// with response text/html
+http.post('/api/users', params, 'text')
 	.then(res => console.log(res))
 	.catch(err => console.log(err));
 ```
